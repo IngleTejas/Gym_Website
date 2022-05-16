@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYMWebsite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            color: white;
+            background-color: black;
+
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        header::before {
+            content: "";
+            background: url('img/wallpaperflare-cropped.jpg') no-repeat center center/cover;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            opacity: 0.4;
+
+        }
+
+        .left {
+            /* border: 2px solid red; */
+            display: inline-block;
+            position: absolute;
+            left: 14px;
+            top: 11px;
+            line-height: 12px;
+        }
+
+        .left img {
+            width: 60px;
+            filter: invert(100%);
+
+        }
+
+        .mid {
+            /* border: 2px solid green; */
+            display: block;
+            margin: 20px auto;
+            width: 40%;
+
+
+        }
+
+        .right {
+            position: absolute;
+            right: 35px;
+            top: 20px;
+            /* border: 2px solid yellow; */
+            display: inline-block;
+        }
+
+        .navbar li {
+            display: inline-block;
+        }
+
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            padding: 35px 25px;
+            font-size: 20px;
+        }
+
+        .navbar li a:hover {
+            color: aqua;
+
+        }
+
+        .logoname {
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: yellow;
+            color: black;
+            margin: 3px;
+            padding: 4px 5px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: 'Nanum Gothic', sans-serif;
+
+        }
+
+        .btn:hover {
+            color: gray;
+        }
+
+        .container {
+            /* border: 2px solid white; */
+            margin: 58px 115px;
+            padding: 100px 95px;
+            border-radius: 43px;
+            width: 33%;
+
+        }
+
+        .form-group input {
+            border: 2px solid black;
+            padding: 9px;
+            margin: 8px;
+            width: 90%;
+            border-radius: 15px;
+            display: block;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: rgb(219, 207, 207);
+            /* this is used for shadow */
+            /* box-shadow: -15px -15px 15px rgba(255, 255, 255, 0.2),
+                15px 15px 15px rgba(0, 0, 0, 0.1); */
+        }
+
+        .container h1 {
+            text-align: center;
+            color: white;
+        }
+
+        .container button {
+            display: block;
+            width: 45%;
+            margin: 35px auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="left"><img
+                src="data:image/png;base64,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"
+                alt="This is an image">
+
+
+            <div class="logoname">Tejas Fitness</div>
+        </div>
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Helpline</a></li>
+
+            </ul>
+        </div>
+        <div class="right">
+            <button class="btn">supplements</button>
+            <button class="btn">steorids</button>
+        </div>
+    </header>
+    <div class="container">
+        <h1>JOIN NOW</h1>
+        <form action="noaction.php"></form>
+        <div class="form-group"><input type="text" name="" placeholder="Enter your name"></div>
+        <div class="form-group"><input type="text" name="" placeholder="Enter your age"></div>
+        <div class="form-group"><input type="text" name="" placeholder="Enter your gender"></div>
+        <div class="form-group"><input type="text" name="" placeholder="Enter your weight"></div>
+        <div class="form-group"><input type="text" name="" placeholder="Enter your height"></div>
+        <div><button class="btn">Submit</button></div>
+
+    </div>
+
+</body>
+
+</html>
